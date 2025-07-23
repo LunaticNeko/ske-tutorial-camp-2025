@@ -6,15 +6,16 @@
 # MIT License - https://opensource.org/license/mit/
 
 # (Meta) DIRECTIONS:
-# Write a program that calcualtes the size of a rectangle.
-# The program must ask the user to input the width and height of the rectangle.
-# Then, the program must calculate the size of the rectangle and print it.
+# Write a program that calcualtes the size of a shape.
+# The program must ask the user to input the dimensions of the shape.
+# Then, the program must calculate the size of the shape and print it.
 
 # (Task) DIRECTIONS:
 # - Expand the program to also accept other shapes like circles and triangles.
 # - The program must first ask the user to type the shape they want to calculate.
 # - If the user inputs an invalid shape, the program should loop back and ask again.
 # - For circles, ask for the radius; for triangles, ask for the base and height.
+# - Only when the output is not an integer, round the output to 3 decimal places.
 
 # EXAMPLE INPUT 1:
 # Shape: rectangle
@@ -29,7 +30,7 @@
 # Radius: 7
 
 # EXAMPLE OUTPUT 2:
-# Size = 153.93804002589985
+# Size = 153.938
 
 # WARNING: Current code is a copy of val01.py.
 # It will be fixed as the lecture progresses.

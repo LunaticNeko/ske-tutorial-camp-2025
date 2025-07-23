@@ -12,25 +12,21 @@
 
 # (Task) DIRECTIONS:
 # - Make the program output an error message if the user inputs a negative number.
-# - Make the program output an error message if the user inputs non-numeric values.
-# - Make the program accept non-integer values for width and height.
-# - If any input is objectively non-integer, the program should round the output to
-#   3 decimal places. (For example, 5.0 counts as 5, an integer, for input validation purposes.)
 # - When an error occurs, the program should exit immediately.
 
 # EXAMPLE INPUT 1:
-# Width: 5.0
+# Width: 5
 # Height: 10
 
 # EXAMPLE OUTPUT 1:
 # Size = 50
 
 # EXAMPLE INPUT 2:
-# Width: 2.5
+# Width: -5
 # Height: 10
 
 # EXAMPLE OUTPUT 2:
-# Size = 25.000
+# Error: Width cannot be negative.
 
 # WARNING: Current code is a copy of val01.py.
 # It will be fixed as the lecture progresses.
