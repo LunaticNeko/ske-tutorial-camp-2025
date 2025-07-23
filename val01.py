@@ -1,0 +1,37 @@
+# Input Validation Example 1 -- Example of Program without Input Validation
+# SKE Tutorial Camp 2025
+# Department of Computer Engineering, Kasetsart University
+# Author: Chawanat Nakasan, D.Eng.
+# MIT License - https://opensource.org/license/mit/
+
+# (Meta) DIRECTIONS:
+# Write a program that calcualtes the size of a rectangle.
+# The program must ask the user to input the width and height of the rectangle.
+# Then, the program must calculate the size of the rectangle and print it.
+
+# EXAMPLE INPUT:
+# Width: 5
+# Height: 10
+
+# EXAMPLE OUTPUT:
+# Size = 50
+
+def calculate_rectangle(width, height):
+    """Calculate rectangle size from width and height."""
+    return width * height
+
+def main():
+    """Main function to run the rectangle size calculation."""
+    # Get user input for width and height
+    width = int(input("Width: "))
+    height = int(input("Height: "))
+
+    # Calculate the size of the rectangle
+    size = calculate_rectangle(width, height)
+
+    # Print the result
+    print(f"Size = {size}")
+
+# This makes the program run the main function when executed
+if __name__ == "__main__":
+    main()
