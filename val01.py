@@ -10,6 +10,14 @@
 # The program must ask the user to input the width and height of the rectangle.
 # Then, the program must calculate the size of the rectangle and print it.
 
+# (Task) DIRECTIONS:
+# Observe the behavior of the program.
+# The program should ask the user for the width and height of a rectangle.
+# - Attempt to input a negative number or zero for width or height.
+# - Attempt to input a non-integer value for width or height.
+# - Attempt to input a very large number for width or height.
+# - Attempt to input text instead of a number.
+
 # EXAMPLE INPUT:
 # Width: 5
 # Height: 10
