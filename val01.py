@@ -17,11 +17,11 @@
 # Size = 50
 
 def calculate_rectangle(width, height):
-    """Calculate rectangle size from width and height."""
+    """Calculate size of rectangle from width and height."""
     return width * height
 
 def main():
-    """Main function to run the rectangle size calculation."""
+    """Main function to execute the rectangle size calculation program."""
     # Get user input for width and height
     width = int(input("Width: "))
     height = int(input("Height: "))
