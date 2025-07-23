@@ -2,6 +2,7 @@
 # SKE Tutorial Camp 2025
 # Department of Computer Engineering, Kasetsart University
 # Author: Chawanat Nakasan, D.Eng.
+# Download this code from: https://github.com/LunaticNeko/ske-tutorial-camp-2025
 # MIT License - https://opensource.org/license/mit/
 
 # (Meta) DIRECTIONS:
