@@ -15,7 +15,6 @@
 # - The program must first ask the user to type the shape they want to calculate.
 # - If the user inputs an invalid shape, the program should loop back and ask again.
 # - For circles, ask for the radius; for triangles, ask for the base and height.
-# - Only when the output is not an integer, round the output to 3 decimal places.
 
 # EXAMPLE INPUT 1:
 # Shape: rectangle
@@ -37,16 +36,77 @@
 
 def calculate_rectangle(width, height):
     """Calculate size of rectangle from width and height."""
+
+    if width < 0:
+        raise ValueError("Error: Width cannot be negative.")
+
+    if height < 0:
+        raise ValueError("Error: Height cannot be negative.")
+
     return width * height
+
+def rectangle_menu():
+    while True:
+        # Get user input for width and height
+        try:
+            width = int(input("Width: "))
+            height = int(input("Height: "))
+        except ValueError as e: # expecting ValueError for int function
+            print("Input parsing error in width or height. Try again.")
+            continue
+        try:
+            # Calculate the size of the rectangle
+            size = calculate_rectangle(width, height)
+            break
+        except ValueError as e:
+            print(e)
+    return size
+
+def calculate_circle(radius):
+    """Calculate size of circle from radius."""
+
+    if radius < 0:
+        raise ValueError("Error: Radius cannot be negative.")
+
+    return (22/7) * (radius ** 2)
+
+def circle_menu():
+    while True:
+        # Get user input for radius and height
+        try:
+            radius = int(input("Radius: "))
+        except ValueError as e: # expecting ValueError for int function
+            print("Input parsing error in radius. Try again.")
+            continue
+        try:
+            # Calculate the size of the rectangle
+            size = calculate_circle(radius)
+            break
+        except ValueError as e:
+            print(e)
+    return size
+
+# TODO: add support for triangle
 
 def main():
     """Main function to execute the rectangle size calculation program."""
-    # Get user input for width and height
-    width = int(input("Width: "))
-    height = int(input("Height: "))
 
-    # Calculate the size of the rectangle
-    size = calculate_rectangle(width, height)
+    valid_shapes = ["rectangle", "circle", "triangle"]
+
+    while True:
+        # Get the shape from the user
+        user_shape = input("Shape [" + ", ".join(valid_shapes) + "]")
+        if user_shape not in valid_shapes:
+            print("Please type a valid choice.")
+            continue
+        break
+
+    if user_shape == "rectangle":
+        size = rectangle_menu()
+    elif user_shape == "circle":
+        size = circle_menu()
+    # TODO: add support for triangle
+    
 
     # Print the result
     print(f"Size = {size}")

@@ -41,6 +41,15 @@ def main():
     width = int(input("Width: "))
     height = int(input("Height: "))
 
+    if width < 0:
+        print("Error: Width cannot be negative.")
+        return
+
+    if height < 0:
+        print("Error: Height cannot be negative.")
+        return
+        
+
     # Calculate the size of the rectangle
     size = calculate_rectangle(width, height)
 

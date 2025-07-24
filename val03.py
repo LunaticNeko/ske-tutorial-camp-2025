@@ -25,6 +25,13 @@
 
 def calculate_rectangle(width, height):
     """Calculate size of rectangle from width and height."""
+
+    if width < 0:
+        raise ValueError("Error: Width cannot be negative.")
+
+    if height < 0:
+        raise ValueError("Error: Height cannot be negative.")
+
     return width * height
 
 def main():
@@ -33,8 +40,12 @@ def main():
     width = int(input("Width: "))
     height = int(input("Height: "))
 
-    # Calculate the size of the rectangle
-    size = calculate_rectangle(width, height)
+    try:
+        # Calculate the size of the rectangle
+        size = calculate_rectangle(width, height)
+    except ValueError as e:
+        print(e)
+        return
 
     # Print the result
     print(f"Size = {size}")
