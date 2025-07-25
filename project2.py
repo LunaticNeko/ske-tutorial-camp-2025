@@ -53,7 +53,7 @@ def move_player(direction, game_state):
 
 
     # Where exactly I am right now
-    current_location = game_state[0]
+    current_location = game_state["player_location"]
     current_location_properties = rooms[current_location]
 
 
@@ -64,12 +64,12 @@ def move_player(direction, game_state):
     # Is the direction supplied in the allowable directions
     # If so,  go to the room in that direction and update the game state
     if direction in list_of_can_go_directions:
-        game_state[0] = current_location_properties['exits'][direction]
+        game_state["player_location"] = current_location_properties['exits'][direction]
 # Morning task
 def take_item(item_name, game_state):
     # game_state = [player_location, player_health, player_score, player_inventory, game_quit]
     # Where exactly I am right now
-    current_location = game_state[0]
+    current_location = game_state["player_location"]
     current_location_properties = rooms[current_location]
 
 
@@ -80,30 +80,30 @@ def take_item(item_name, game_state):
     # Is the item_name supplied in the allowable items to take
     # If so, take the item and remove that item from the current location
     if item_name in list_of_can_take_items:
-        game_state[3].append(item_name)
+        game_state["player_inventory"].append(item_name)
         current_location_properties['items'].remove(item_name)
 
 
 # Morning task
 def check_win_condition(game_state):
     # Check if player has collected the treasure
-    treasure_chest_in_inventory = 'treasure_chest' in game_state[3]
+    treasure_chest_in_inventory = 'treasure_chest' in game_state["player_inventory"]
     return treasure_chest_in_inventory
 
 
 
 def display_stats(game_state):
     """Show HP, score, item count"""
-    print(f"HP: {game_state[1]} | Score: {game_state[2]} | Items: {len(game_state[3])}")
+    print(f"HP: {game_state['player_health']} | Score: {game_state['player_score']} | Items: {len(game_state['player_inventory'])}")
 
 
 def show_inventory(game_state):
     """Show items"""
     print("Inventory:")
-    if len(game_state[3]) == 0:
+    if len(game_state["player_inventory"]) == 0:
         print("  Nothing")
     else:
-        for item in game_state[3]:
+        for item in game_state["player_inventory"]:
             print(f"* {item}")
 
 
@@ -153,7 +153,7 @@ def process_command(command, game_state):
     elif action == 'inventory':
         show_inventory(game_state)
     elif action == 'look':
-        display_location(game_state[0])
+        display_location(game_state["player_location"])
     elif action == 'stats':
         display_stats(game_state)
     elif action == 'help':
@@ -175,8 +175,16 @@ def main():
     game_win = False
     game_lose = False
     game_quit = False
-    current_game_state = [player_location, player_health, player_score, player_inventory, game_quit]
-   
+    #current_game_state = [player_location, player_health, player_score, player_inventory, game_quit]
+    current_game_state = {
+        "player_location": player_location,
+        "player_health" : player_health,
+        "player_score" : player_score,
+        "player_inventory" : player_inventory,
+        "game_quit": game_quit
+    }
+
+
     print("="*60)
     print("         WELCOME TO THE ADVENTURE GAME!")
     print("="*60)
@@ -192,7 +200,7 @@ def main():
         # Check win conditions
         game_win = check_win_condition(current_game_state)
        
-        game_quit = current_game_state[4]
+        game_quit = current_game_state['game_quit']
         if game_quit:
             break
    
